@@ -32,8 +32,7 @@ actor Bank {
         Debug.print(debug_show(msg.caller));
         if (balances.get(msg.caller) == null) {
             let amount = 10000;
-            balances.put(msg.caller, amount);
-            return "Success!";
+            return await transfer(msg.caller, amount);
         } else {
             return "Already Claimed!";
         }
